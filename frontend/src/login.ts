@@ -8,10 +8,10 @@ const passwordElm = document.querySelector('#password') as HTMLInputElement;
 submitElm.addEventListener('click',(e:Event)=>{
     e.preventDefault();
     if(emailElm.value==="" || passwordElm.value===""){
-        alert('Please enter fields')
+      return  alert('Please enter fields')
     }
     if(!emailElm.value.includes('@') || !emailElm.value.includes(".com")){
-        alert("Please enter valid email");
+      return  alert("Please enter valid email");
     }
    
         const user=({ 
@@ -27,10 +27,11 @@ submitElm.addEventListener('click',(e:Event)=>{
               })
               .then(res => res.json())
               .then(res=>{
-                alert(res)
+                
                 if(res==="Login Successfully."){
                   window.location.href='./homePage.html'
                 }
+                return alert(res);
               });
 })
     
