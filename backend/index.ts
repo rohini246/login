@@ -2,6 +2,10 @@ import express,{Request,Response} from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import { ErrorHandler } from './errorMiddleware/errorHandler';
+import signupRoutes from './routes/signup';
+import loginRoutes from './routes/login';
+import forgotRoutes from './routes/forgot';
+
 
 const port: number = 8080;
 const url:string = "mongodb://localhost:27017/users";
@@ -13,9 +17,10 @@ mongoose.connect(url, (err: any) =>{
     console.log(`Connecting to MONGO`);
     } 
 });
-const signupRoutes = require('./routes/signup');
-const loginRoutes = require('./routes/login')
-const forgotRoutes = require('./routes/forgot')
+
+//const signupRoutes = require('./routes/signup');
+//const loginRoutes = require('./routes/login')
+//const forgotRoutes = require('./routes/forgot')
 
 const app = express();
 app.use(express.json());
@@ -28,4 +33,3 @@ const errorHandler = new ErrorHandler();
 app.use(errorHandler.errorHandler);
 
 app.listen(port, () => {console.log(`Listening on port ${port}`);});
-

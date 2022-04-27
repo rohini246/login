@@ -7,11 +7,11 @@ submitElem.addEventListener('click', (e) => {
     if (!emailElem.value) {
         return alert('Please enter email');
     }
-    if (!emailElm.value.includes('@') || !emailElm.value.includes(".com")) {
+    if (!emailElem.value.includes('@') || !emailElem.value.includes(".com")) {
         return alert("Please enter valid email");
     }
     const user = ({
-        email: emailElm.value
+        email: emailElem.value
     });
     fetch('http://localhost:8080/forgot', {
         method: 'POST',

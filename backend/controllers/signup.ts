@@ -1,5 +1,6 @@
-import { Request,Response,NextFunction } from "express";
+import { Request,Response} from "express";
 import { signService } from "../services/signup";
-export const createUser = async(req:Request,res:Response,next:NextFunction)=>{   
-    await signService(req,res,next);              
+export const createUser = async(req:Request,res:Response)=>{   
+   const createUserData= await signService(req);  
+   return res.json(createUserData);            
  }

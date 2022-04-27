@@ -1,11 +1,11 @@
-import { NextFunction, Request,Response } from "express";
+import {Request } from "express";
 import user from "../models/user";
-export const forgotService = async(req:Request,res:Response,next:NextFunction)=>{
+export const forgotService = async(req:Request)=>{
         const {email} = req.body;
         const existingUser = await user.findOne({email:email})
         if(!existingUser){
-          return  next("Please enter registered email")
-        }else{
-           return  next("Reset password");    
+          return  ("Please enter registered email")
+        }else{       
+           return  ("Reset password");    
         }
 }
