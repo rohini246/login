@@ -18,10 +18,6 @@ mongoose.connect(url, (err: any) =>{
     } 
 });
 
-//const signupRoutes = require('./routes/signup');
-//const loginRoutes = require('./routes/login')
-//const forgotRoutes = require('./routes/forgot')
-
 const app = express();
 app.use(express.json());
 app.use(cors());
